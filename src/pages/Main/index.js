@@ -27,20 +27,20 @@ export default function Main() {
   );
 
   function onHandlerStateChanged(event) {
-
+    
   }
 
   return (
     <Container>
       <Header />
       <Content>
-        <Menu />
+        <Menu translateY={translateY} />
         <PanGestureHandler onGestureEvent={animatedEvent} onHandlerStateChange={onHandlerStateChanged}>
           <Card style={{
             transform: [{
               translateY: translateY.interpolate({
-                inputRange: [0, 380], // se o card estiver fora desses valorres px, 
-                outputRange: [0, 380],
+                inputRange: [-350, 0, 380], // se o card estiver fora desses valorres px, 
+                outputRange: [-50, 0, 380], // meio que a sensibilidade que arrasta o item
                 extrapolate: 'clamp', // esse atributo não deixa ele proceguir
               }),
             }]
