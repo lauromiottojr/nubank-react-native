@@ -13,6 +13,8 @@ import Menu from '~/components/Menu';
 
 export default function Main() {
 
+  let offset = 0;
+
   const translateY = new Animated.Value(0);
 
   const animatedEvent = new Animated.event(
@@ -27,7 +29,12 @@ export default function Main() {
   );
 
   function onHandlerStateChanged(event) {
-    
+    if (event.nativeEvent.oldState == State.ACTIVE) {
+      const { translationY } = event.nativeEvent;
+      offset += translationY;
+      translateY.setOffset(offset);
+      translateY.setValue(0);
+    }
   }
 
   return (
