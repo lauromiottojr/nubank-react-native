@@ -2,7 +2,9 @@ import React from 'react';
 
 import QRCode from 'react-native-qrcode';
 
-import { Container, Code } from './styles';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import { Container, Code, Nav, NavItem, NavText, SignOutButton, SignOutButtonText } from './styles';
 
 export default function Menu() {
     return (
@@ -15,6 +17,27 @@ export default function Menu() {
                     bgColor="#8B10AE"   
                 />
             </Code>
+            <Nav>
+                <NavItem>
+                    <Icon name="help-outline" size={20} color="#FFF" />
+                    <NavText>Me ajuda</NavText>
+                </NavItem>
+                <NavItem>
+                    <Icon name="person-outline" size={20} color="#FFF" />
+                    <NavText>Perfil</NavText>
+                </NavItem>
+                <NavItem>
+                    <Icon name="credit-card" size={20} color="#FFF" />
+                    <NavText>Configurar cartão</NavText>
+                </NavItem>
+                <NavItem>
+                    <Icon name="smartphone" size={20} color="#FFF" />
+                    <NavText>Configurações do APP</NavText>
+                </NavItem>
+            </Nav>
+            <SignOutButton onPress={() => {}}>
+                <SignOutButtonText>Sair do APP</SignOutButtonText>
+            </SignOutButton>
         </Container>
     );
 }
